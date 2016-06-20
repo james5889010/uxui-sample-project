@@ -1,6 +1,6 @@
 var express = require('express');
 var fs = require("fs");
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var router = express.Router();
 var app = express();
 app.use(bodyParser.json());
@@ -22,10 +22,10 @@ router.get('/:id', function (req, res) {
     console.log(returnRestaurant);
     res.end(JSON.stringify(returnRestaurant));
   });
-})
+});
 
 router.get('/:id/menu', function (req, res) {
-  fs.readFile(__dirname + "/" + "restaurants.json", 'utf8', function (err, data) {
+  fs.readFile("resources/" + "restaurants.json", 'utf8', function (err, data) {
 
     var idOfRestaurant = req.params.id;
 
@@ -41,20 +41,15 @@ router.get('/:id/menu', function (req, res) {
     console.log(returnRestaurant);
     res.end(JSON.stringify(returnRestaurant));
   });
-})
+});
 
 router.get('/', function (req, res) {
   fs.readFile("resources/" + "restaurants.json", 'utf8', function (err, data) {
-
     var idOfRestaurant = req.params.id;
-
     data = JSON.parse(data);
-
     console.log("you requested restaurant " + idOfRestaurant);
-
-    console.log(data);
     res.end(JSON.stringify(data));
   });
-})
+});
 
 module.exports = router;
