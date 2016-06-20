@@ -58,12 +58,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
-module.exports = app;
-
-
 var server = app.listen(8081, function () {
   var host = server.address().address;
   var port = server.address().port;
 
   console.log("server started on " + host + ":" + port);
 });
+
+app.use(express.static("public"));
+
+module.exports = app;
