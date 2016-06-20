@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var restaurant = require('./routes/restaurant');
+var order = require('./routes/order');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/restaurant', restaurant);
+app.use('/order', order);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -56,10 +58,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
-module.exports = app;
-
-
 var server = app.listen(8081, function () {
   var host = server.address().address;
   var port = server.address().port;
+
+  console.log("server started on " + host + ":" + port);
 });
+
+app.use(express.static("public"));
+
+module.exports = app;
