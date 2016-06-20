@@ -2,3 +2,5 @@ node_modules
 bin
 .idea
 *.iml
+*.min.js
+*.min.css
