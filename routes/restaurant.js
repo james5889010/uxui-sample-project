@@ -25,7 +25,7 @@ router.get('/:id', function (req, res) {
 })
 
 router.get('/:id/menu', function (req, res) {
-  fs.readFile(__dirname + "/" + "restaurants.json", 'utf8', function (err, data) {
+  fs.readFile("restaurants.json", 'utf8', function (err, data) {
 
     var idOfRestaurant = req.params.id;
 
