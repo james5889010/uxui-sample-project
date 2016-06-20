@@ -9,8 +9,8 @@ paths.js = "./public/**/*.js";
 paths.minJs = "./public/**/*.min.js";
 paths.css = "./public/**/*.css";
 paths.minCss = "./public/**/*.min.css";
-paths.concatJsDest = "./public/site.min.js";
-paths.concatCssDest = "./public/site.min.css";
+paths.concatJsDest = "./public/javascript/site.min.js";
+paths.concatCssDest = "./public/stylesheets/site.min.css";
 
 // Tasks to clean folders and files.
 gulp.task("clean:js", function (cb) {
