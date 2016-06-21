@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		var restaurants = JSON.parse(data);
 		for (var i = 0 ; i < restaurants.length ; i++) {
-			var name = restaurants[0].RestaurantDescription.Name;
+			var name = restaurants[i].RestaurantDescription.Branch;
 
 			var liNode = document.createElement("li");
 			liNode.appendChild(document.createTextNode(name));
