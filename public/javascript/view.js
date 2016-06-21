@@ -11,11 +11,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			var id = restaurants[i].RestaurantDescription.Id;
 
 			var liNode = document.createElement("li");
-			var anchor = document.createElement("a");
-			liNode.setAttribute("dir", "rtl");
-			anchor.setAttribute("href", "menu.html?restaurant="+id);
-			anchor.appendChild(document.createTextNode(branch));
-			liNode.appendChild(anchor);
+			var liInnterHtml = "<a href='menu.html?restaurant="
+				+id
+				+"'><span class='branch'>"
+				+branch
+				+"</span><span class='list-image'>"
+				+"<img src='img/chevron.png'/></span></a>";
+			liNode.innerHTML = liInnterHtml;
 			dispList.appendChild(liNode);
 		}
 	}
