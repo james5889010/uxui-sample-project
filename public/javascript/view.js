@@ -25,4 +25,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	function onServerError(error) {
 		alert("error communicating with server: " + error);
 	}
-});
+}); 
