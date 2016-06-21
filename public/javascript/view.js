@@ -7,10 +7,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		var restaurants = JSON.parse(data);
 		for (var i = 0 ; i < restaurants.length ; i++) {
-			var name = restaurants[0].RestaurantDescription.Name;
+			var branch = restaurants[i].RestaurantDescription.Branch;
+			var id = restaurants[i].RestaurantDescription.Id;
 
 			var liNode = document.createElement("li");
-			liNode.appendChild(document.createTextNode(name));
+			var anchor = document.createElement("a");
+			liNode.setAttribute("dir", "rtl");
+			anchor.setAttribute("href", "menu.html?restaurant="+id);
+			anchor.appendChild(document.createTextNode(branch));
+			liNode.appendChild(anchor);
 			dispList.appendChild(liNode);
 		}
 	}
