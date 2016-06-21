@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,11 +6,24 @@ a {
   color: #00B7FF;
 }
 
-div {
+.landing-page-body { 
+	background-image: url("../img/landing-bg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#select-restaurant {
+	background: rgba(255, 255, 255, 0.85);
 	border: 2px solid #6D8047;
+	border-radius: 6px;
+
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
-
-section{
-
-}
-
