@@ -25,7 +25,7 @@ gulp.task("clean:css", function (cb) {
 });
 
 // Tasks to minify CSS files and uglify JS files.
-gulp.task("min:js", function () {
+gulp.task("min:js", ["clean:js"], function () {
     gulp.src([paths.js, "!" + paths.minJs], { base: "." })
         .pipe(concat(paths.concatJsDest))
         .pipe(uglify())

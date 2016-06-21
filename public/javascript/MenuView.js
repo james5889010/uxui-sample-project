@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			var listBoxList = document.createElement("ol");
 
 			for (var j = 0 ; j < menuCats[i].Items.length ; j++) {
-				var listItem = createListItem(menuCats[i].Items[j]);
-				listBoxList.appendChild(listItem);
+				var detailsItem = createListItem(menuCats[i].Items[j]);
+				listBoxList.appendChild(detailsItem);
 			}
 
 			listBox.appendChild(listBoxList);
@@ -41,8 +41,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 
 	function createListItem(item) {
-		var listBoxItem = document.createElement("li");
-		listBoxItem.setAttribute("class", "item");
+
+		var detailsItem = document.createElement("details");
+
+		var summaryItem = document.createElement("summary");
+		summaryItem.setAttribute("class", "item");
 
 		var itemInfo = document.createElement("p");
 
@@ -56,14 +59,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		itemPrice.appendChild(document.createTextNode(item.Price));
 		itemInfo.appendChild(itemPrice);
 
-		listBoxItem.appendChild(itemInfo);
+		summaryItem.appendChild(itemInfo);
 
 		var itemDetail = document.createElement("p");
 		itemDetail.setAttribute("class", "item-detail");
 		itemDetail.appendChild(document.createTextNode(item.Description));
 		
-		listBoxItem.appendChild(itemDetail);
+		summaryItem.appendChild(itemDetail);
+		detailsItem.appendChild(summaryItem);
 
-		return listBoxItem;
+		var menuItemInfo = createItemMoreInfo(item);
+
+		return detailsItem;
+	}
+
+	function createItemMoreInfo(item) {
+
+		
 	}
 });
