@@ -6,6 +6,7 @@
   border-radius: 6px;
   ol{
     padding:0px;
+    margin:0px;
   }
   > header {
     padding: 0px 0px 17px 0px;
@@ -49,10 +50,6 @@
 }
 * {
   box-sizing: border-box;
-}
-
-body{
-  background-color:black;
 }
 
 .row::after {
