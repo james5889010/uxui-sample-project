@@ -9,6 +9,7 @@ paths.js = "./public/**/*.js";
 paths.minJs = "./public/**/*.min.js";
 paths.css = "./public/**/*.css";
 paths.minCss = "./public/**/*.min.css";
+paths.scss = "./public/**/*.scss";
 paths.concatJsDest = "./public/javascript/site.min.js";
 paths.concatCssDest = "./public/stylesheets/site.min.css";
 
@@ -19,6 +20,11 @@ gulp.task("clean:js", function (cb) {
 
 gulp.task("clean:css", function (cb) {
     rimraf(paths.concatCssDest, cb);
+});
+gulp.task('sass', function () {
+    return gulp.src(paths.scss)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(paths.concatCssDest));
 });
 
 // Tasks to minify CSS files and uglify JS files.
