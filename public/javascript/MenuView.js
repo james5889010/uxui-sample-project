@@ -60,7 +60,7 @@ $(function () {
 
         var itemPrice = document.createElement("span");
         itemPrice.setAttribute("class", "item-price");
-        itemPrice.appendChild(document.createTextNode(item.Price.toFixed(2)));
+        itemPrice.appendChild(document.createTextNode("€"+item.Price.toFixed(2)));
         itemInfo.appendChild(itemPrice);
 
         summaryItem.appendChild(itemInfo);
