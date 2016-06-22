@@ -3,11 +3,10 @@
   box-sizing: border-box;
 }
 
-
 html, body {
   height: 100%;
   width: 100%;
-  min-wdith:460px;
+  min-wdith: 460px;
 }
 
 input[type=radio]:checked {
@@ -422,7 +421,7 @@ body {
     .item-detail {
       font-size: 15px;
       color: #536a1f;
-      width:80%;
+      width: 80%;
     }
     p {
       margin: 0px;
@@ -534,9 +533,9 @@ ul.button-list {
       font-size: 28px;
       font-family: 'Work Sans', sans-serif;
       font-weight: bold;
-      padding:10px;
+      padding: 10px;
       cursor: pointer;
-      display:none;
+      display: none;
     }
     h3 {
       font-size: 24px;
@@ -558,19 +557,20 @@ ul.button-list {
 }
 
 @media all and (max-width: 992px) {
-  body{  margin:0px;
+  body {
+    margin: 0px;
   }
   .container {
     .order-container {
-      .close{
-        display:block;
+      .close {
+        display: block;
       }
       display: none;
       padding: 10px;
       border-radius: 0;
       border: 0;
       position: absolute;
-      left:0;
+      left: 0;
       right: 0;
       margin-left: auto;
       margin-right: auto;
@@ -604,23 +604,23 @@ ul.button-list {
 
 @media all and (max-width: 700px) {
   .container {
-    border:0px;
-    padding:0px;
-    .container-content{
-      padding:15px;
+    border: 0px;
+    padding: 0px;
+    .container-content {
+      padding: 15px;
       border: 0px;
       border-radius: 0px;
       background-color: transparent;
 
     }
-    .container-header{
-      padding:15px;
+    .container-header {
+      padding: 15px;
       border: 0px;
       border-radius: 0px;
     }
     .order-container {
-      .close{
-        display:block;
+      .close {
+        display: block;
       }
       display: none;
       padding: 10px;
@@ -641,7 +641,7 @@ ul.button-list {
 
 @media all and (min-width: 992px) {
   .container {
-    .order-container{
+    .order-container {
       display: block !important;
     }
     .container-header {
@@ -657,7 +657,7 @@ ul.button-list {
 
   background-color: #ffffff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  padding:15px;
+  padding: 15px;
   font: bold 14px sans-serif;
 }
 
@@ -669,8 +669,6 @@ ul.button-list {
 .order-form .form-title-row {
   margin-bottom: 5px;
 }
-
-/* The form title */
 
 .order-form h3 {
   display: inline-block;
@@ -694,79 +692,88 @@ ul.button-list {
   }
 }
 
-.order-form input {
-  color: #5f5f5f;
-  height: 33px;
-  box-sizing: border-box;
-  width: 50%;
-  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-  padding: 12px;
-  border: 1px solid #dbdbdb;
-}
-
-.order-form input[type=radio],
-.order-form input[type=checkbox] {
-  display: none;
-  box-shadow: none;
-  width: auto;
-  + img {
-    content: url("../img/Selector - Single Unselected 3 Copy.png");
+.order-form {
+  input {
+    color: #5f5f5f;
+    height: 33px;
+    box-sizing: border-box;
+    with: 50%;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px;
+    border: 1px solid #dbdbdb;
   }
-}
-
-.order-form input[type=radio]:checked,
-.order-form input[type=checkbox]:checked {
-  + img {
-    content: url("../img/Selector - Single Selected 2 Copy.png");
+  input[type=radio],
+  input[type=checkbox] {
+    display: none;
+    box-shadow: none;
+    width: auto;
+    + img {
+      content: url("../img/Selector - Single Unselected 3 Copy.png");
+    }
   }
-}
 
-.order-form input[type=checkbox] {
-  margin-top: 13px;
-}
+  input[type=radio]:checked,
+  input[type=checkbox]:checked {
+    + img {
+      content: url("../img/Selector - Single Selected 2 Copy.png");
+    }
+  }
 
-.order-form select {
-  background-color: #ffffff;
-  color: #5f5f5f;
-  box-sizing: border-box;
-  max-width: 240px;
-  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-  padding-left: 5px;
-  border: 1px solid #dbdbdb;
-  height: 33px;
-  width: 50%;
-}
+  input[type=checkbox] {
+    margin-top: 13px;
+  }
 
-.order-form textarea {
-  color: #5f5f5f;
-  box-sizing: border-box;
-  width: 240px;
-  height: 80px;
-  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-  font: normal 13px sans-serif;
-  padding: 12px;
-  border: 1px solid #dbdbdb;
-  resize: vertical;
-}
+  select {
+    background-color: #ffffff;
+    color: #5f5f5f;
+    box-sizing: border-box;
+    max-width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding-left: 5px;
+    border: 1px solid #dbdbdb;
+    height: 33px;
+    width: 50%;
+  }
 
-.order-form .form-radio-buttons {
-  display: inline-block;
-  vertical-align: middle;
-}
+  textarea {
+    color: #5f5f5f;
+    box-sizing: border-box;
+    width: 240px;
+    height: 80px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    font: normal 13px sans-serif;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    resize: vertical;
+  }
 
-.order-form .form-radio-buttons > div {
-  margin-top: 10px;
-}
+  .form-radio-buttons {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-.order-form .form-radio-buttons label span {
-  margin-left: 8px;
-  color: #5f5f5f;
-  font-weight: normal;
-  vertical-align: 8px;
-}
+  .form-radio-buttons {
+    > div {
+      margin-top: 10px;
+    }
+  }
 
-.order-form .form-radio-buttons input {
-  width: auto;
+  .form-radio-buttons {
+    label {
+      span {
+        margin-left: 8px;
+        color: #5f5f5f;
+        font-weight: normal;
+        vertical-align: 8px;
+      }
+    }
+  }
+
+  .form-radio-buttons {
+    input {
+      width: auto;
+    }
+  }
 }
 
 .default-button, .order-form button {
@@ -778,7 +785,7 @@ ul.button-list {
   font-weight: bold;
   width: 40%;
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-  margin-left:auto;
+  margin-left: auto;
 }
 
 /*	Making the form responsive. Remove this gi query
@@ -824,17 +831,21 @@ ul.button-list {
   }
 }
 
-details summary::-webkit-details-marker { display:none; }
+details summary::-webkit-details-marker {
+  display: none;
+}
 
-details>summary { cursor: pointer; }
+details > summary {
+  cursor: pointer;
+}
 
-details[open]>summary>p:first-of-type {
+details[open] > summary > p:first-of-type {
   padding-top: 10px;
   border-top: 1px solid #406840;
 }
 
-details>summary {
-  outline:none;
+details > summary {
+  outline: none;
 }
 
 .plus-minus-btns {
@@ -844,10 +855,11 @@ details>summary {
   font-size: 26px;
   background-color: #4567ff;
   color: white;
-} 
+}
 
 .item-amount {
   width: 25%;
   height: 35px;
   text-align: center;
 }
+
