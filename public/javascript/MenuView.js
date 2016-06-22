@@ -81,7 +81,7 @@ $(function () {
     function createItemMoreInfo(item) {
         var selectAmountObj = document.createElement("p");
         selectAmountObj.innerHTML =
-            " <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button class='default-button'>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;' style='color: #c62c02;'>Close</a>"
+            " <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button class='default-button' onclick='addItemToCart(this)' data-item-id='" + item.Id + "'>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;' style='color: #c62c02;'>Close</a>"
 
 
         return selectAmountObj;
@@ -108,4 +108,8 @@ function adjustCounter(triggeringElement, adjustment) {
 
 function closeDetails(triggeringElement) {
     triggeringElement.parentNode.parentNode.removeAttribute("open");
+}
+
+function addItemToCart(triggeringElement) {
+
 }
