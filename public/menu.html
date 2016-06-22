@@ -12,14 +12,101 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/layout.css">
 </head>
 <body class="landing-page-body">
-<section class="container col-6 col-3-offset">
-    <Header class="container-header">
-        <img class="container-logo" src="img/ThaiGarden-Logo@2x.png"/>
-        <span class="container-sub-header">Templeogue</span>
-        <a class="container-header-link">Change</a>
-    </Header>
-    <section id="menu-container" class="container-content">
+<div class="row container col-lg-8 col-md-10 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-1 col-sm-offset-1">
+    <section class="menu">
+        <Header class="container-header">
+            <img class="container-logo" src="img/ThaiGarden-Logo@2x.png"/>
+            <span class="container-sub-header">Templeogue</span>
+            <a class="container-header-link ">Change</a>
+            <img id="basket" class="basket" src="img/Shopping%20Basket%20icon.png" />
+        </Header>
+        <section id="menu-container" class=" container-content">
+        </section>
     </section>
-</section>
+    <section class="order-container">
+
+        <form class="order-form" method="post" action="#">
+            <div class="form-title-row">
+                <h3>Your order</h3>
+            </div>
+            <div class="form-title-row">
+                <h3>Checkout</h3>
+            </div>
+
+            <div class="form-row">
+                <label><span>Order For</span></label>
+                <div class="form-radio-buttons">
+                    <div>
+                        <label>
+                            <input type="radio" name="order-for">
+                            <img>
+                            <span>Delivery</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="radio" name="order-for">
+                            <img>
+                            <span>Collection</span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Collact At</span>
+                    <select name="dropdown">
+                        <option>ASAP</option>
+                        <option>21:30</option>
+                        <option>21:45</option>
+                        <option>22:00</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label><span>Pay with</span></label>
+                <div class="form-radio-buttons">
+                    <div>
+                        <label>
+                            <input type="radio" name="pay-with">
+                            <img>
+                            <span>Cash</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="radio" name="pay-with">
+                            <img>
+                            <span>Card</span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Name</span>
+                    <input type="text" name="name">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Modile</span>
+                    <input type="text" name="modile">
+                </label>
+            </div>
+            <div class="form-row">
+                <button type="submit">Place Order</button>
+            </div>
+        </form>
+    </section>
+</div>
 </body>
 </html>

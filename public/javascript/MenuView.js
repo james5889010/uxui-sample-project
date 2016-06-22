@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
+$(function() {
 
 	var restId = location.search.split("restaurant=")[1];
 
@@ -66,4 +66,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		return listBoxItem;
 	}
+	$( "#basket" ).click(function() {
+		$( ".order-container" ).toggle( "slide" );
+	});
 });
