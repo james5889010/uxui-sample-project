@@ -362,6 +362,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
 }
 
 #select-restaurant {
@@ -419,7 +420,7 @@ body {
     .item-detail {
       font-size: 15px;
       color: #536a1f;
-      test-align: left;
+      width:80%;
     }
     p {
       margin: 0px;
@@ -551,6 +552,8 @@ ul.button-list {
 }
 
 @media all and (max-width: 992px) {
+  body{  margin:0px;
+  }
   .container {
     .order-container {
       display: none;
@@ -595,6 +598,20 @@ ul.button-list {
 
 @media all and (max-width: 700px) {
   .container {
+    border:0px;
+    padding:0px;
+    .container-content{
+      padding:15px;
+      border: 0px;
+      border-radius: 0px;
+      background-color: transparent;
+
+    }
+    .container-header{
+      padding:15px;
+      border: 0px;
+      border-radius: 0px;
+    }
     .order-container {
       display: none;
       padding: 10px;
@@ -631,7 +648,7 @@ ul.button-list {
 
   background-color: #ffffff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-
+  padding:15px;
   font: bold 14px sans-serif;
 }
 
@@ -752,8 +769,7 @@ ul.button-list {
   font-weight: bold;
   width: 40%;
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-  border: 0;
-  float: right;
+  margin-left:auto;
 }
 
 /*	Making the form responsive. Remove this media query
