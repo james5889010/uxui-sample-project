@@ -46,7 +46,7 @@ gulp.task("min:css", ["sass:css"], function () {
 });
 
 gulp.task("watch", function() {
-    gulp.watch([paths.js, paths.css, paths.scss], ["default"]);
+    gulp.watch([paths.js, paths.css, paths.scss], ["sass:css"]);
 });
 
 gulp.task("min", ["min:js", "min:css"]);

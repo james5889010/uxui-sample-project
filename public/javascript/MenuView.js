@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
+window.onload = function() { 
 
 	var restId = location.search.split("restaurant=")[1];
 
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		var itemPrice = document.createElement("span");
 		itemPrice.setAttribute("class", "item-price");
-		itemPrice.appendChild(document.createTextNode(item.Price));
+		itemPrice.appendChild(document.createTextNode(item.Price.toFixed(2)));
 		itemInfo.appendChild(itemPrice);
 
 		summaryItem.appendChild(itemInfo);
@@ -68,13 +68,37 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		summaryItem.appendChild(itemDetail);
 		detailsItem.appendChild(summaryItem);
 
-		var menuItemInfo = createItemMoreInfo(item);
+		var selectAmountObj = createItemMoreInfo(item);
+		detailsItem.appendChild(selectAmountObj);
 
 		return detailsItem;
 	}
 
 	function createItemMoreInfo(item) {
+		var selectAmountObj = document.createElement("p");
+		selectAmountObj.innerHTML = 
+		" <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;'>Close</a>"
 
-		
+
+		return selectAmountObj;
 	}
-});
+
+
+}
+
+function adjustCounter(triggeringElement, adjustment) {
+	var formElements = triggeringElement.parentNode.children;
+	for (var i  =  0 ; i  <  formElements.length ; i++ ){
+		if (formElements[i].tagName === "INPUT") {
+			var currentValue = formElements[i].value;
+			if (adjustment < 0 && currentValue < 2) {
+				return;
+			}
+			formElements[i].value = parseInt(currentValue) + adjustment;
+		}
+	}
+}
+
+function closeDetails(triggeringElement) {
+	triggeringElement.parentNode.parentNode.removeAttribute("open");
+}

@@ -268,3 +268,15 @@ details[open]>summary>p:first-of-type {
 details>summary {
   outline:none;
 }
+
+.plus-minus-btns {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+} 
+
+.item-amount {
+  width: 25%;
+  height: 33px;
+  text-align: center;
+}
