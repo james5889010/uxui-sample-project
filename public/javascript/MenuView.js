@@ -87,6 +87,10 @@ $(function () {
         $(".order-container").toggle("slide");
     });
 
+    $(".close").click(function () {
+        $(".order-container").toggle("slide");
+    });
+
 });
 
 function adjustCounter(triggeringElement, adjustment) {
