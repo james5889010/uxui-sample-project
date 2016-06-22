@@ -19,8 +19,8 @@ $(function() {
 			var listBoxList = document.createElement("ol");
 
 			for (var j = 0 ; j < menuCats[i].Items.length ; j++) {
-				var listItem = createListItem(menuCats[i].Items[j]);
-				listBoxList.appendChild(listItem);
+				var detailsItem = createListItem(menuCats[i].Items[j]);
+				listBoxList.appendChild(detailsItem);
 			}
 
 			listBox.appendChild(listBoxList);
@@ -41,8 +41,11 @@ $(function() {
 	}
 
 	function createListItem(item) {
-		var listBoxItem = document.createElement("li");
-		listBoxItem.setAttribute("class", "item");
+
+		var detailsItem = document.createElement("details");
+
+		var summaryItem = document.createElement("summary");
+		summaryItem.setAttribute("class", "item");
 
 		var itemInfo = document.createElement("p");
 
@@ -53,20 +56,50 @@ $(function() {
 
 		var itemPrice = document.createElement("span");
 		itemPrice.setAttribute("class", "item-price");
-		itemPrice.appendChild(document.createTextNode(item.Price));
+		itemPrice.appendChild(document.createTextNode(item.Price.toFixed(2)));
 		itemInfo.appendChild(itemPrice);
 
-		listBoxItem.appendChild(itemInfo);
+		summaryItem.appendChild(itemInfo);
 
 		var itemDetail = document.createElement("p");
 		itemDetail.setAttribute("class", "item-detail");
 		itemDetail.appendChild(document.createTextNode(item.Description));
 		
-		listBoxItem.appendChild(itemDetail);
+		summaryItem.appendChild(itemDetail);
+		detailsItem.appendChild(summaryItem);
 
-		return listBoxItem;
+		var selectAmountObj = createItemMoreInfo(item);
+		detailsItem.appendChild(selectAmountObj);
+
+		return detailsItem;
+	}
+
+	function createItemMoreInfo(item) {
+		var selectAmountObj = document.createElement("p");
+		selectAmountObj.innerHTML = 
+		" <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;'>Close</a>"
+
+
+		return selectAmountObj;
 	}
 	$( "#basket" ).click(function() {
 		$( ".order-container" ).toggle( "slide" );
 	});
+
+function adjustCounter(triggeringElement, adjustment) {
+	var formElements = triggeringElement.parentNode.children;
+	for (var i  =  0 ; i  <  formElements.length ; i++ ){
+		if (formElements[i].tagName === "INPUT") {
+			var currentValue = formElements[i].value;
+			if (adjustment < 0 && currentValue < 2) {
+				return;
+			}
+			formElements[i].value = parseInt(currentValue) + adjustment;
+		}
+	}
+}
+
+function closeDetails(triggeringElement) {
+	triggeringElement.parentNode.parentNode.removeAttribute("open");
+}
 });

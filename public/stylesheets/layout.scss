@@ -800,3 +800,27 @@ ul.button-list {
   }
 }
 
+details summary::-webkit-details-marker { display:none; }
+
+details>summary { cursor: pointer; }
+
+details[open]>summary>p:first-of-type {
+  padding-top: 10px;
+  border-top: 1px solid #406840;
+}
+
+details>summary {
+  outline:none;
+}
+
+.plus-minus-btns {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+} 
+
+.item-amount {
+  width: 25%;
+  height: 33px;
+  text-align: center;
+}

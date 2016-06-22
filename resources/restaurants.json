@@ -32,12 +32,18 @@
             "Title": "101 Siam Harbourside Mixed Starters",
             "Description": "A selection of authentic Thai starters, served with a variety of sauces.\n(minimum order is for two people)",
             "Price": 13.95,
-            "HasVariation": false,
+            "HasVariation": true,
             "HasExtras": false,
             "Variations": [
               {
                 "Id": 2590,
-                "Title": "101 Siam Harbourside Mixed Starters",
+                "Title": "with fishcakes",
+                "Price": 13.95,
+                "HasExtras": false
+              },
+              {
+                "Id": 2591,
+                "Title": "no fishcakes",
                 "Price": 13.95,
                 "HasExtras": false
               }
