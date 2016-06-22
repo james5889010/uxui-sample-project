@@ -77,7 +77,7 @@ $(function () {
     function createItemMoreInfo(item) {
         var selectAmountObj = document.createElement("p");
         selectAmountObj.innerHTML =
-            " <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;'>Close</a>"
+            " <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button class='default-button'>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;'>Close</a>"
 
 
         return selectAmountObj;
@@ -89,19 +89,19 @@ $(function () {
 
 });
 
-    function adjustCounter(triggeringElement, adjustment) {
-        var formElements = triggeringElement.parentNode.children;
-        for (var i = 0; i < formElements.length; i++) {
-            if (formElements[i].tagName === "INPUT") {
-                var currentValue = formElements[i].value;
-                if (adjustment < 0 && currentValue < 2) {
-                    return;
-                }
-                formElements[i].value = parseInt(currentValue) + adjustment;
+function adjustCounter(triggeringElement, adjustment) {
+    var formElements = triggeringElement.parentNode.children;
+    for (var i = 0; i < formElements.length; i++) {
+        if (formElements[i].tagName === "INPUT") {
+            var currentValue = formElements[i].value;
+            if (adjustment < 0 && currentValue < 2) {
+                return;
             }
+            formElements[i].value = parseInt(currentValue) + adjustment;
         }
     }
+}
 
-    function closeDetails(triggeringElement) {
-        triggeringElement.parentNode.parentNode.removeAttribute("open");
-    }
+function closeDetails(triggeringElement) {
+    triggeringElement.parentNode.parentNode.removeAttribute("open");
+}
