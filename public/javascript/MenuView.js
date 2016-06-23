@@ -137,7 +137,7 @@ function addItemToCart(triggeringElement) {
     orderItems.push(orderItem);
     sessionStorage.setItem("orderItems", JSON.stringify(orderItems));
 
-    addItemsToOrdersList();
+    displayItems();
 }
 
 function OrderItem(id, quantity) {
@@ -145,6 +145,6 @@ function OrderItem(id, quantity) {
     this.quantity = quantity;
 }
 
-function addItemsToOrdersList() {
-    
+function displayItems() {
+    var itemsDiv = document.getElementById("order-contents");
 }

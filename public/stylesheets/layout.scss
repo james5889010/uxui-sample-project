@@ -863,3 +863,25 @@ details > summary {
   text-align: center;
 }
 
+.item-title {
+    font-weight: lighter;
+    color: #536a1f; 
+}
+
+.item-price {
+  float: right;
+}
+
+.order-form {
+  h3 {
+    padding-bottom: 0;
+  }
+}
+
+#order-contents {
+  li {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dotted;
+  }
+}
