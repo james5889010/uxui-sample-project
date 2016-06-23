@@ -3,7 +3,8 @@
 
 html, body {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  min-wdith: 460px; }
 
 input[type=radio]:checked {
   display: none; }
@@ -77,7 +78,7 @@ input[type=radio]:checked {
 .col-xs-1 {
   width: 8.33333333%; }
 
-@media (min-width: 768px) {
+@media all and (min-width: 768px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left; }
   .col-sm-12 {
@@ -131,7 +132,7 @@ input[type=radio]:checked {
   .col-sm-offset-0 {
     margin-left: 0; } }
 
-@media (min-width: 992px) {
+@media all and (min-width: 992px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left; }
   .col-md-12 {
@@ -185,7 +186,7 @@ input[type=radio]:checked {
   .col-md-offset-0 {
     margin-left: 0; } }
 
-@media (min-width: 1200px) {
+@media all and (min-width: 1200px) {
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left; }
   .col-lg-12 {
@@ -381,12 +382,14 @@ ul.button-list {
   background-color: rgba(255, 255, 255, 0.98);
   padding: 20px 15px 105px 30px; }
   .container .order-container .close {
-    font-size: 15px;
     color: #c62c02;
-    font-family: 'Work Sans', sans-serif;
     float: right;
-    padding-bottom: 15px;
-    display: block; }
+    font-size: 28px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    display: none; }
   .container .order-container h3 {
     font-size: 24px;
     color: #406840;
@@ -399,7 +402,8 @@ ul.button-list {
   float: left; }
 
 .basket {
-  display: none; }
+  display: none;
+  cursor: pointer; }
 
 @media all and (max-width: 992px) {
   body {
@@ -407,20 +411,19 @@ ul.button-list {
   .container .order-container {
     display: none;
     padding: 10px;
-    padding: 0px;
-    border-radius: 0px;
-    border: 0px;
+    border-radius: 0;
+    border: 0;
     position: absolute;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    right: 0px;
-    left: 0px;
     min-width: 60%;
     transition: all .4s;
     float: right;
     z-index: 100; }
+    .container .order-container .close {
+      display: block; }
   .container .menu {
     width: 100%; }
   .basket {
@@ -462,7 +465,9 @@ ul.button-list {
       margin-right: auto;
       min-width: 100%;
       transition: all .4s;
-      z-index: 100; } }
+      z-index: 100; }
+      .container .order-container .close {
+        display: block; } }
 
 @media all and (min-width: 992px) {
   .container .order-container {
@@ -486,7 +491,6 @@ ul.button-list {
 .order-form .form-title-row {
   margin-bottom: 5px; }
 
-/* The form title */
 .order-form h3 {
   display: inline-block;
   box-sizing: border-box;
@@ -510,7 +514,7 @@ ul.button-list {
   color: #5f5f5f;
   height: 33px;
   box-sizing: border-box;
-  width: 50%;
+  with: 50%;
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
   padding: 12px;
   border: 1px solid #dbdbdb; }
@@ -580,9 +584,9 @@ ul.button-list {
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
   margin-left: auto; }
 
-/*	Making the form responsive. Remove this media query
+/*	Making the form responsive. Remove this gi query
     if you don't need the form to work on mobile devices. */
-@media (max-width: 600px) {
+@media all and (max-width: 600px) {
   .order-form {
     padding: 30px;
     max-width: 480px; }

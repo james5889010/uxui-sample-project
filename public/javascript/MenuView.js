@@ -81,7 +81,7 @@ $(function () {
     function createItemMoreInfo(item) {
         var selectAmountObj = document.createElement("p");
         selectAmountObj.innerHTML =
-            " <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button class='default-button' onclick='addItemToCart(this)' data-item-id='" + item.Id + "'>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;' style='color: #c62c02;'>Close</a>"
+            " <button class='plus-minus-btns' onclick='adjustCounter(this, -1)'>-</button> <input type='number' value=1 class='item-amount' readonly> <button class='plus-minus-btns' onclick='adjustCounter(this, +1)'>+</button> <button class='default-button' onclick='addItemToCart(this)' data-item-id='" + item.Id + "' style='display:inline-block'>Add to Cart</button> <a href='#' onclick='closeDetails(this); return false;' style='color: #c62c02;'>Close</a>"
 
 
         return selectAmountObj;
@@ -115,5 +115,36 @@ function closeDetails(triggeringElement) {
 }
 
 function addItemToCart(triggeringElement) {
+    var itemId = triggeringElement.getAttribute("data-item-id");
+    var quantity;
 
+    var siblings = triggeringElement.parentElement.children;
+    for (var i = 0; i < siblings.length; i++) {
+        if (siblings[i].tagName === "INPUT") {
+            quantity = parseInt(siblings[i].value);
+        }
+    }
+
+    var orderItem = new OrderItem(itemId, quantity);
+
+    var orderItemsString = sessionStorage.getItem("orderItems");
+    if (!orderItemsString) {
+        orderItemsString = "[]";
+    }
+
+    var orderItems = JSON.parse(orderItemsString);
+
+    orderItems.push(orderItem);
+    sessionStorage.setItem("orderItems", JSON.stringify(orderItems));
+
+    addItemsToOrdersList();
+}
+
+function OrderItem(id, quantity) {
+    this.id = id;
+    this.quantity = quantity;
+}
+
+function addItemsToOrdersList() {
+    
 }
