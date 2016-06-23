@@ -146,5 +146,83 @@ function OrderItem(id, quantity) {
 }
 
 function displayItems() {
+    
+    var restId = location.search.split("restaurant=")[1];
+
+    osl.domain.restaurant.retrieveRestaurant(onGetRestaurantForMenuItemsSuccess,null, restId);
+
+    function onGetRestaurantForMenuItemsSuccess(data) {
+
+        var restaurant = JSON.parse(data);
+        var allItems = getAllItemsForRestaurant(restaurant);
+
+        var userSelectedOrderItems = getItemsFromSessionStorage();
+        
+        var usersItems = [];
+        for (var  i = 0 ; i < userSelectedOrderItems.length ; i++) {
+            var itemWithDetails = getItemFromAllItems(userSelectedOrderItems[i].id, allItems);
+            if (itemWithDetails) {
+                usersItems.push(itemWithDetails);
+            }
+        }
+
+        buildDomForItemsList(usersItems);
+    }
+
+}
+
+function getAllItemsForRestaurant(restaurant) {
+    var allItems = [];
+    for (var i = 0 ; i < restaurant.RestaurantMenuCategories.length ; i++ ) {
+        var menuCategory = restaurant.RestaurantMenuCategories[i];
+        for (var j = 0 ; j < menuCategory.Items.length ; j++ ) {
+            var item = menuCategory.Items[j];
+            if(item) {
+                allItems.push(item);
+            }
+        }
+    }
+
+    return allItems;
+}
+
+function getItemsFromSessionStorage() {
+    var orderItemsString = sessionStorage.getItem("orderItems");
+    return JSON.parse(orderItemsString);
+}
+
+function getItemFromAllItems(id, allItems) {
+    for (var i = 0 ; i < allItems.length ; i++) {
+        if (allItems[i].Id == id) {
+            return allItems[i];
+        }
+    }
+}
+
+function buildDomForItemsList(usersItems) {
+
     var itemsDiv = document.getElementById("order-contents");
+    itemsDiv.innerHTML = "";
+
+    for (var i = 0 ; i < usersItems.length ; i++ ) {
+        var liNode = buildDomForItem(usersItems[i]);
+        itemsDiv.appendChild(liNode);
+    }
+}
+
+function buildDomForItem(item) {
+    var liNode = document.createElement("li");
+
+    var titleNode = document.createElement("span");
+    titleNode.setAttribute("class", "item-title");
+    titleNode.appendChild(document.createTextNode(item.Title));
+
+    var priceNode = document.createElement("span");
+    priceNode.setAttribute("class", "item-price");
+    priceNode.appendChild(document.createTextNode("€"+item.Price.toFixed(2)));
+
+    liNode.appendChild(titleNode);
+    liNode.appendChild(priceNode);
+
+    return liNode;
 }

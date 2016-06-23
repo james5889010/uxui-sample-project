@@ -648,4 +648,4 @@ details > summary {
 #order-contents li, #order-contents ul.button-list a, ul.button-list #order-contents a {
   padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px dotted; }
+  border-bottom: 1px dotted rgba(128, 128, 128, 0.5); }
