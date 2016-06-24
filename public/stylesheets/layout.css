@@ -442,7 +442,7 @@ ul.button-list {
 @media all and (max-width: 700px) {
   .container {
     border: 0px;
-    padding: 0px; }
+    padding: 10px; }
     .container .container-content {
       padding: 15px;
       border: 0px;
