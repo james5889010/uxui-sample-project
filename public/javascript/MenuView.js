@@ -186,7 +186,11 @@ function displayItems() {
 
     function getItemsFromSessionStorage() {
         var orderItemsString = sessionStorage.getItem("orderItems");
-        return JSON.parse(orderItemsString);
+
+        if (orderItemsString) {
+            return JSON.parse(orderItemsString);
+        }
+        return JSON.parse("[]");
     }
 
     function getItemFromAllItems(id, allItems) {
@@ -208,7 +212,11 @@ function displayItems() {
         }
 
         var totalPriceNode = createTotalNode(usersItems);
-        itemsDiv.appendChild(totalPriceNode);
+
+        if(usersItems.length > 0) {
+            itemsDiv.appendChild(totalPriceNode);    
+        }
+        
     }
 
     function buildDomForItem(item) {
@@ -251,3 +259,7 @@ function displayItems() {
 
 }
 
+function placeOrder() {
+    sessionStorage.clear();
+    displayItems();
+}
