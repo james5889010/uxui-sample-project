@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
 
     var restId = location.search.split("restaurant=")[1];
 
@@ -60,7 +60,7 @@ $(function () {
 
         var itemPrice = document.createElement("span");
         itemPrice.setAttribute("class", "item-price");
-        itemPrice.appendChild(document.createTextNode("€"+item.Price.toFixed(2)));
+        itemPrice.appendChild(document.createTextNode("€" + item.Price.toFixed(2)));
         itemInfo.appendChild(itemPrice);
 
         summaryItem.appendChild(itemInfo);
@@ -87,11 +87,11 @@ $(function () {
         return selectAmountObj;
     }
 
-    $("#basket").click(function () {
+    $("#basket").click(function() {
         $(".order-container").toggle("slide");
     });
 
-    $(".close").click(function () {
+    $(".close").click(function() {
         $(".order-container").toggle("slide");
     });
 
@@ -146,10 +146,10 @@ function OrderItem(id, quantity) {
 }
 
 function displayItems() {
-    
+
     var restId = location.search.split("restaurant=")[1];
 
-    osl.domain.restaurant.retrieveRestaurant(onGetRestaurantForMenuItemsSuccess,null, restId);
+    osl.domain.restaurant.retrieveRestaurant(onGetRestaurantForMenuItemsSuccess, null, restId);
 
     function onGetRestaurantForMenuItemsSuccess(data) {
 
@@ -157,9 +157,9 @@ function displayItems() {
         var allItems = getAllItemsForRestaurant(restaurant);
 
         var userSelectedOrderItems = getItemsFromSessionStorage();
-        
+
         var usersItems = [];
-        for (var  i = 0 ; i < userSelectedOrderItems.length ; i++) {
+        for (var i = 0; i < userSelectedOrderItems.length; i++) {
             var itemWithDetails = getItemFromAllItems(userSelectedOrderItems[i].id, allItems);
             if (itemWithDetails) {
                 usersItems.push(itemWithDetails);
@@ -171,11 +171,11 @@ function displayItems() {
 
     function getAllItemsForRestaurant(restaurant) {
         var allItems = [];
-        for (var i = 0 ; i < restaurant.RestaurantMenuCategories.length ; i++ ) {
+        for (var i = 0; i < restaurant.RestaurantMenuCategories.length; i++) {
             var menuCategory = restaurant.RestaurantMenuCategories[i];
-            for (var j = 0 ; j < menuCategory.Items.length ; j++ ) {
+            for (var j = 0; j < menuCategory.Items.length; j++) {
                 var item = menuCategory.Items[j];
-                if(item) {
+                if (item) {
                     allItems.push(item);
                 }
             }
@@ -194,7 +194,7 @@ function displayItems() {
     }
 
     function getItemFromAllItems(id, allItems) {
-        for (var i = 0 ; i < allItems.length ; i++) {
+        for (var i = 0; i < allItems.length; i++) {
             if (allItems[i].Id == id) {
                 return allItems[i];
             }
@@ -206,17 +206,17 @@ function displayItems() {
         var itemsDiv = document.getElementById("order-contents");
         itemsDiv.innerHTML = "";
 
-        for (var i = 0 ; i < usersItems.length ; i++ ) {
+        for (var i = 0; i < usersItems.length; i++) {
             var liNode = buildDomForItem(usersItems[i]);
             itemsDiv.appendChild(liNode);
         }
 
         var totalPriceNode = createTotalNode(usersItems);
 
-        if(usersItems.length > 0) {
-            itemsDiv.appendChild(totalPriceNode);    
+        if (usersItems.length > 0) {
+            itemsDiv.appendChild(totalPriceNode);
         }
-        
+
     }
 
     function buildDomForItem(item) {
@@ -244,7 +244,7 @@ function displayItems() {
 
         var totalPrice = 0.00;
 
-        for (var i = 0 ; i < usersItems.length ; i++ ) { 
+        for (var i = 0; i < usersItems.length; i++) {
             totalPrice += usersItems[i].Price;
         }
 
